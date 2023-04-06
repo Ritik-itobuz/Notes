@@ -1,16 +1,16 @@
 import mongoose from "mongoose";
 import express from "express";
 import cors from 'cors'
-import routes from "./routes/noteRoutes.js";
+import routes from "./routes/notesRoutes.js";
 
 const app = express();
 
 const PORT = 8008;
 
-// parse json request body
+
 app.use(express.json())
 
-// enable cors
+
 app.use(cors())
 app.options('*', cors())
 
@@ -24,7 +24,7 @@ app.listen(PORT, () => {
 const url =
    "mongodb+srv://ritik:sinha@cluster0.oummjkp.mongodb.net/?retryWrites=true&w=majority";
 
-async function connection() {
+async function dbConnect() {
   await mongoose
     .connect(url, {
       useNewUrlParser: true,
@@ -38,4 +38,4 @@ async function connection() {
     });
 }
 
-connection();
+dbConnect();
