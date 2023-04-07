@@ -41,7 +41,6 @@ header {
 .todo-heading,
 .todo-button {
   width: 20vw;
-  
 }
 
 .todo-button:hover {
@@ -150,14 +149,13 @@ form button:hover {
 .check {
   display: inline-block;
   transform: rotate(45deg);
-  height:24px;
+  height: 24px;
   width: 12px;
   border-bottom: 7px solid #78b13f;
   border-right: 7px solid #78b13f;
 }
 .done {
-margin-top: 20px;
-text-align: center;
-  color:white;
+  margin-top: 20px;
+  text-align: center;
+  color: white;
 }
-
