@@ -13,6 +13,9 @@ body {
 header {
   font-size: 2rem;
 }
+.done {
+  visibility: hidden;
+}
 .detailSection {
   position: absolute;
   bottom: 5px;
@@ -38,6 +41,7 @@ header {
 .todo-heading,
 .todo-button {
   width: 20vw;
+  
 }
 
 .todo-button:hover {
@@ -142,3 +146,18 @@ form button:hover {
     background-color: #ff6f47;
   }
 }
+
+.check {
+  display: inline-block;
+  transform: rotate(45deg);
+  height:24px;
+  width: 12px;
+  border-bottom: 7px solid #78b13f;
+  border-right: 7px solid #78b13f;
+}
+.done {
+margin-top: 20px;
+text-align: center;
+  color:white;
+}
+

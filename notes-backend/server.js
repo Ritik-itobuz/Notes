@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import express from "express";
 import cors from 'cors'
 import routes from "./routes/notesRoutes.js";
-
+import config from "./config.js";
 const app = express();
 
 const PORT = 8008;
@@ -22,7 +22,7 @@ app.listen(PORT, () => {
 });
 
 const url =
-   "mongodb+srv://ritik:sinha@cluster0.oummjkp.mongodb.net/?retryWrites=true&w=majority";
+   config.MONGO_URL;
 
 async function dbConnect() {
   await mongoose

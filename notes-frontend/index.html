@@ -15,8 +15,13 @@
   </head>
 
   <body>
+    <h1 class="done" id="doneDiv">DONE 
+      <div class="check"></div>
+    </h1>
+
+   
     <header>
-      <h1>Notes App</h1>
+      <h1 id="appName">Notes App</h1>
     </header>
     <div class="inputSection">
       <input type="text" placeholder="Title" class="todo-heading" id="title" />
@@ -27,7 +32,8 @@
         id="dec"
       />
 
-      <button class="todo-button" type="submit" onclick="add()">ADD</button>
+      <button class="todo-button" id="addButton" type="submit" onclick="add()">ADD</button>
+      <!-- <button class="todo-button" id="editButton" type="submit" >EDIT</button> -->
     </div>
 
     <div
