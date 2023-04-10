@@ -74,11 +74,16 @@ export const updateNote = async (req, res) => {
 
     const note = await notesSchema.findById(id);
 
-    if (note) {
+    if (note) {  
+
+      note.title = title || note.title;
+      note.content = content || note.content;
+      
       await note.save();
       res.status(200).json({
         success: true,
         message: "Note Updated successfully!",
+        data : note
       });
     } else {
       res.status(404).json({

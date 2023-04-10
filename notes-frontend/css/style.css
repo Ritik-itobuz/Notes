@@ -95,6 +95,7 @@ form button:hover {
   min-width: 250px;
   padding: 1.5rem;
   border-radius: 16px;
+  overflow-y: scroll;
   /* background: blanchedalmond; */
   background: #17141d;
   box-shadow: -1rem 0 3rem #000;
@@ -159,3 +160,4 @@ form button:hover {
   text-align: center;
   color: white;
 }
+
