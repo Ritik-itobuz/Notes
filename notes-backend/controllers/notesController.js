@@ -1,10 +1,8 @@
 import notesSchema from "../model/notesSchema.js";
 
-export const createNote = async (req, res) => {
+export const createNote = async (req, res, next) => {
   try {
-    console.log(req.body);
     const { title, content } = req.body;
-    console.log(title);
     let createNote = await notesSchema.create({
       title,
       content,
@@ -18,12 +16,11 @@ export const createNote = async (req, res) => {
       });
     }
   } catch (error) {
-    console.log(error);
-    res.status(400).json({ message: error.message });
+    next(error);
   }
 };
 
-export const getNotes = async (req, res) => {
+export const getNotes = async (req, res, next) => {
   try {
     const notes = await notesSchema.find({});
     if (notes) {
@@ -35,17 +32,14 @@ export const getNotes = async (req, res) => {
       });
     }
   } catch (error) {
-    console.log(error);
-    res.status(400).json({ message: error.message });
+    next(error);
   }
 };
 
-export const getNoteById = async (req, res) => {
+export const getNoteById = async (req, res, next) => {
   try {
     const { id } = req.params;
-
     const note = await notesSchema.findById(id);
-
     if (note) {
       res.status(200).json({
         success: true,
@@ -60,30 +54,25 @@ export const getNoteById = async (req, res) => {
       });
     }
   } catch (error) {
-    res.status(400).json({
-      success: false,
-      message: error.message,
-    });
+    next(error);
   }
 };
 
-export const updateNote = async (req, res) => {
+export const updateNote = async (req, res, next) => {
   try {
     const id = req.params.id;
     const { title, content } = req.body;
-
     const note = await notesSchema.findById(id);
 
-    if (note) {  
-
+    if (note) {
       note.title = title || note.title;
       note.content = content || note.content;
-      
+
       await note.save();
       res.status(200).json({
         success: true,
         message: "Note Updated successfully!",
-        data : note
+        data: note,
       });
     } else {
       res.status(404).json({
@@ -93,20 +82,18 @@ export const updateNote = async (req, res) => {
       });
     }
   } catch (error) {
-    res.status(400).json({
-      success: false,
-      message: error.message,
-    });
+    next(error);
   }
 };
 
-export const deleteNote = async (req, res) => {
-  const note = await notesSchema.findByIdAndDelete(req.params.id);
-
-  if (!note) {
-    res.status(400);
-    console.log("Note not found");
+export const deleteNote = async (req, res, next) => {
+  try {
+    const note = await notesSchema.findByIdAndDelete(req.params.id);
+    if (note) {
+      res.status(200).json({ id: req.params.id });
+    }
+  } 
+  catch (error) {
+    next(error);
   }
-
-  res.status(200).json({ id: req.params.id });
 };

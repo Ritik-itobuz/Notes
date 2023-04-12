@@ -16,7 +16,19 @@ app.options('*', cors())
 
 
 app.use("/notes", routes);
+app.use((request, response, next) => {
+  next(new Error("Page not found"));
+});
 
+app.use((error, request, response, next) => {
+  if (error) {
+    response.status(500).send({
+      data: null,
+      message: error.message,
+      success: false,
+    });
+  }
+});
 app.listen(PORT, () => {
   console.log(`Listening in ${PORT}`);
 });

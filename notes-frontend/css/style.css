@@ -34,16 +34,16 @@ header {
   justify-content: center;
   align-items: center;
 }
-.todo-input {
+.noteInput {
   width: 20vw;
   height: 7vh;
 }
-.todo-heading,
-.todo-button {
+.noteHeading,
+.noteButton {
   width: 20vw;
 }
 
-.todo-button:hover {
+.noteButton:hover {
   background-color: #ff6f47;
 }
 header,
@@ -96,7 +96,6 @@ form button:hover {
   padding: 1.5rem;
   border-radius: 16px;
   overflow-y: scroll;
-  /* background: blanchedalmond; */
   background: #17141d;
   box-shadow: -1rem 0 3rem #000;
   display: flex;
@@ -107,15 +106,11 @@ form button:hover {
   clear: both;
   position: relative;
 }
-/* .cardSection:focus-within~.card, .card:hover~.card {
-    transform: translateX(130px);
-} */
 
 .cardSection:hover {
   transform: translateY(-1rem);
   transform: translateX(-3rem);
   background: linear-gradient(90deg, #ff8a00, #e52e71);
-
   z-index: 100;
 }
 
@@ -123,7 +118,7 @@ form button:hover {
   margin-left: -130px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
   .cardSection {
     margin-left: 10px;
   }
@@ -133,16 +128,16 @@ form button:hover {
   .cardSection:hover {
     background: inherit;
   }
-  .todo-input {
+  .noteInput {
     width: 60vw;
     height: 8vh;
   }
-  .todo-heading,
-  .todo-button {
+  .noteHeading,
+  .noteButton {
     width: 60vw;
   }
 
-  .todo-button:hover {
+  .noteButton:hover {
     background-color: #ff6f47;
   }
 }
@@ -160,4 +155,3 @@ form button:hover {
   text-align: center;
   color: white;
 }
-

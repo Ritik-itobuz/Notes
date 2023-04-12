@@ -3,10 +3,10 @@ import { createNote, getNotes, updateNote, deleteNote,getNoteById } from "../con
 
 const route = express.Router();
 
-route.post("/create",createNote);
+route.post("/create" , createNote);
 route.get("/get", getNotes);
 route.get("/:id", getNoteById);
-route.put("/update/:id", updateNote);
-route.delete("/delete/:id", deleteNote);
+route.put("/update/:id" , updateNote);
+route.delete("/delete/:id" , deleteNote);
 
 export default route;

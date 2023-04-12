@@ -14,29 +14,22 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
 
-  <body>
+  <body id="body">
     <h1 class="done" id="doneDiv">
       DONE
       <div class="check"></div>
     </h1>
 
-
     <header>
       <h1 id="appName">Notes App</h1>
     </header>
     <div class="inputSection">
-      <input type="text" placeholder="Title" class="todo-heading" id="title" />
-      <input
-        type="text"
-        placeholder="Description"
-        class="todo-input"
-        id="dec"
-      />
+      <input type="text" placeholder="Title" class="noteHeading" id="title" />
+      <input type="text" placeholder="Description" class="noteInput" id="dec" />
 
-      <button class="todo-button" id="addButton" type="submit" onclick="add()">
+      <button class="noteButton" id="addButton" type="submit" onclick="add()">
         ADD
       </button>
-      <!-- <button class="todo-button" id="editButton" type="submit" >EDIT</button> -->
     </div>
 
     <div
